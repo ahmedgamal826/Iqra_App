@@ -84,4 +84,24 @@ List<listOfNames> nameList = [
   listOfNames(text: 'المُتَعَالِي'), // The Most Exalted
   listOfNames(text: 'البَرُّ'), // The Source of All Goodness
   listOfNames(text: 'التَّوَاب'), // The Acceptor of Repentance
+  listOfNames(text: 'المُنْتَقِم'), // The Avenger
+  listOfNames(text: 'العَفُوُّ'), // The Pardoner
+  listOfNames(text: 'الرَّؤُوف'), // The Compassionate
+  listOfNames(text: 'مَالِكُ المُلْك'), // The Owner of All Sovereignty
+  listOfNames(
+      text: 'ذُو الجَلَالِ وَالإِكْرَام'), // The Lord of Majesty and Generosity
+  listOfNames(text: 'المُقْسِط'), // The Equitable
+  listOfNames(text: 'الجَامِع'), // The Gatherer
+  listOfNames(text: 'الغَنِيُّ'), // The Rich
+  listOfNames(text: 'المُغْنِي'), // The Enricher
+  listOfNames(text: 'المَانِع'), // The Preventer
+  listOfNames(text: 'الضَّار'), // The Harmer
+  listOfNames(text: 'النَّافِع'), // The Benefiter
+  listOfNames(text: 'النُّور'), // The Light
+  listOfNames(text: 'الهَادِي'), // The Guide
+  listOfNames(text: 'البَدِيع'), // The Incomparable
+  listOfNames(text: 'البَاقِي'), // The Everlasting
+  listOfNames(text: 'الوَارِث'), // The Inheritor
+  listOfNames(text: 'الرَّشِيد'), // The Rightly Guided
+  listOfNames(text: 'الصَّبُور'), // The Patient
 ];
