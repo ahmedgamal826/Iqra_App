@@ -5,11 +5,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'constants.dart';
 
-final ItemScrollController itemScrollController = ItemScrollController();
+final ItemScrollController itemScrollController =
+    ItemScrollController(); // initialize
 final ItemPositionsListener itemPositionsListener =
     ItemPositionsListener.create();
-
-bool fabIsClicked = true;
 
 class SurahBuilder extends StatefulWidget {
   final sura;
@@ -26,12 +25,6 @@ class SurahBuilder extends StatefulWidget {
 }
 
 class _SurahBuilderState extends State<SurahBuilder> {
-  // initstate
-  // jumb to ayah
-  // save bookmark
-  // verseBuilding
-  // single surah Builders
-
   bool view = true;
 
   @override
@@ -42,23 +35,21 @@ class _SurahBuilderState extends State<SurahBuilder> {
   }
 
   jumbToAyah() {
-    if (fabIsClicked) {
-      itemScrollController.scrollTo(
-          index: widget.ayah,
-          duration: Duration(seconds: 2),
-          curve: Curves.easeInOutCubic);
-    }
-
-    fabIsClicked = false;
+    itemScrollController.scrollTo(
+        index: widget.ayah, // number of ayah
+        duration: Duration(seconds: 2),
+        curve: Curves.easeInOutCubic);
   }
 
   saveBookMark(surah, ayah) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setInt("surah", surah);
-    await prefs.setInt("ayah", ayah);
+    await prefs.setInt("surah", surah); // surah ==> number of surah
+    await prefs.setInt("ayah", ayah); //  ayah ==> number of ayah in surah
   }
 
   Row verseBuilder(int index, previousVerses) {
+    // prevoius to prevent each of surah in the same of screen
+    // build ayat surah
     return Row(
       children: [
         Expanded(
@@ -74,10 +65,6 @@ class _SurahBuilderState extends State<SurahBuilder> {
                 color: const Color.fromARGB(196, 0, 0, 0),
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [],
-            )
           ],
         ))
       ],
@@ -88,6 +75,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
     String fullSura = '';
     int previousVerses = 0;
     if (widget.sura + 1 != 1) {
+      // to get the surah in the correct poistion
       for (int i = widget.sura - 1; i >= 0; i--) {
         previousVerses = previousVerses + numberOfSurah[i];
       }
@@ -114,8 +102,8 @@ class _SurahBuilderState extends State<SurahBuilder> {
                           : const ReturnBasmala(),
                       Container(
                         color: index % 2 != 0
-                            ? const Color.fromARGB(255, 253, 251, 240)
-                            : const Color.fromARGB(255, 253, 247, 230),
+                            ? const Color.fromARGB(255, 253, 251, 240) // yellow
+                            : const Color.fromARGB(255, 253, 247, 230), // white
                         child: PopupMenuButton(
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -191,7 +179,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
   }
 
   Widget build(BuildContext context) {
-    int LenghtOfSura = numberOfSurah[widget.sura];
+    int LenghtOfSura = numberOfSurah[widget.sura]; // sura ==> nunber of surah
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,

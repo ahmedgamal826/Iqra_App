@@ -13,5 +13,3 @@ class AzkarModel {
     color = json["color"];
   }
 }
-
-List<int> numberOfAzkars = [1, 2, 3, 4, 5];

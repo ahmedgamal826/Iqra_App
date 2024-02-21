@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iqra_app/Quran_page/surah_builder.dart';
-import 'package:iqra_app/Quran_page/to_arabic_no_converter.dart';
 
-import 'arabic_surah_number.dart';
 import 'constants.dart';
 import 'mydrawer.dart';
 
@@ -41,7 +39,8 @@ class _IndexPageState extends State<IndexPage> {
         },
       ),
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white, size: 35),
+        iconTheme:
+            IconThemeData(color: Colors.white, size: 35), // to change menu icon
         backgroundColor: Colors.brown,
         centerTitle: true,
         title: Text(
@@ -61,18 +60,21 @@ class _IndexPageState extends State<IndexPage> {
         ],
       ),
       body: FutureBuilder(
-        future: readJson(),
+        future: readJson(), // read json file
         builder: (
           BuildContext context,
           AsyncSnapshot snapshot,
         ) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+                child: CircularProgressIndicator(
+              color: Colors.brown,
+            ));
           } else if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasError) {
               return const Text('Error');
             } else if (snapshot.hasData) {
-              return indexCreator(snapshot.data, context);
+              return HomePageQuran(snapshot.data, context);
             } else {
               return const Text('Empty data');
             }
@@ -84,7 +86,7 @@ class _IndexPageState extends State<IndexPage> {
     );
   }
 
-  Container indexCreator(quran, context) {
+  Container HomePageQuran(quran, context) {
     return Container(
       color: Colors.white,
       child: ListView.builder(
@@ -92,17 +94,14 @@ class _IndexPageState extends State<IndexPage> {
         itemBuilder: (context, index) {
           return Container(
             color: index % 2 == 0
-                ? const Color.fromARGB(255, 253, 247, 230)
-                : const Color.fromARGB(255, 253, 251, 240),
+                ? const Color.fromARGB(255, 253, 247, 230) // yellow
+                : const Color.fromARGB(255, 253, 251, 240), // white
             child: TextButton(
               child: ListTile(
                 leading: Text(
-                  '${arabicName[index]['surah']}',
+                  '${arabicName[index]['surah']}', // Number of Surah
                   style: TextStyle(fontSize: 25),
                 ),
-                // txt: "\uFD3E" +
-                //     (index + 1).toString().toArabicNumbers +
-                //     "\uFD3F"),
                 title: Row(
                   children: [
                     Column(

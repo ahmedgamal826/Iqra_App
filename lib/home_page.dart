@@ -27,22 +27,23 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: pages[currentPageIndex],
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.shifting,
+        type: BottomNavigationBarType.shifting, // shifting from 4 or more
         currentIndex: currentPageIndex,
-        onTap: (value) {
+        onTap: (index) {
           setState(() {
-            currentPageIndex = value;
+            currentPageIndex = index;
           });
         },
         items: [
           BottomNavigationBarItem(
+              // Tasbeh Icon
               backgroundColor: Colors.brown,
               icon: Image.asset(
                 'assets/images/ramadan.png',
                 color: Colors.white,
                 width: 40,
               ),
-              label: 'المسبحة الإلكترونية'),
+              label: 'السبحة الإلكترونية'),
           BottomNavigationBarItem(
               backgroundColor: Colors.brown,
               icon: Image.asset(

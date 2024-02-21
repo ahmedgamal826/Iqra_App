@@ -287,10 +287,10 @@ List malayalam = [];
 List quran = [];
 
 readJson() async {
-  final String response =
+  final String response = // rootBudle use to open and read files
       await rootBundle.loadString("assets/hafs_smart_v8.json");
-  final data = json.decode(response);
-  arabic = data["quran"];
-  malayalam = data["malayalam"];
+  final data = json.decode(response); // to convert from .json into .dart
+  arabic = data["quran"]; // quran ==> the name of list in file json
+
   return quran = [arabic, malayalam];
 }
